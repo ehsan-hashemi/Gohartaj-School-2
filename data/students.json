@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "fullName": "سید محمد احسان هاشمی کلاگری",
+    "nationalCode": "0374352216",
+    "password": "0374352216",
+    "role": "student",
+    "grade": "هفتم",
+    "class": "هفتم ۲",
+    "profileImage": "‌/assets/images/logo.png",
+    "reportCards": [
+    ]
+  },
+  {
+    "id": 3,
+    "fullName": "مدیریت",
+    "nationalCode": "1212121212",
+    "password": "65218",
+    "role": "admin",
+    "profileImage": "../../assets/images/profiles/admin1.jpg"
+  },
+  {
+    "id": 4,
+    "fullName": "معلم",
+    "nationalCode": "0000000000",
+    "password": "0000000000",
+    "role": "teacher",
+    "subject": "ریاضی",
+    "profileImage": ""
+  }
+]

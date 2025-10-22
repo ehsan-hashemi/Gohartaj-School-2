@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل دانش آموزی - دبیرستان گوهرتاج</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+    <style>
+        /* استایل‌های اضافی برای پنل دانش آموز */
+        .welcome-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: var(--secondary-color);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+        }
+        
+        .event-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-bottom: 1rem;
+        }
+        
+        .event-date {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 0.75rem;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 60px;
+        }
+        
+        .event-day {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .event-month {
+            font-size: 0.85rem;
+        }
+        
+        .profile-field {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .profile-label {
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .profile-value {
+            color: var(--text-color);
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="sticky-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="../../assets/images/logo.png" alt="لوگو دبیرستان گوهرتاج" class="logo">
+                <h1 class="school-name">دبیرستان گوهرتاج</h1>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="../../" class="nav-link">خانه</a></li>
+                    <li><a href="../../news/" class="nav-link">اخبار</a></li>
+                    <li><a href="../../news/live/" class="nav-link">پخش زنده</a></li>
+                    <li><a href="#" class="nav-link" id="logout-btn">خروج</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="student-info">
+                <h3 class="student-name" id="student-name">نام دانش آموز</h3>
+                <p class="student-class" id="student-class">کلاس - پایه</p>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul class="sidebar-menu">
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link active" data-section="student-home">
+                            خانه
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link" data-section="student-profile">
+                            پروفایل
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link" data-section="student-schedule">
+                            برنامه کلاسی
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link" data-section="student-report-cards">
+                            کارنامه
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="dashboard-content">
+            <!-- بخش خانه دانش آموز -->
+            <section id="student-home" class="dashboard-section active">
+                <h2>داشبورد دانش آموزی</h2>
+                
+                <div class="welcome-section mb-4">
+                    <div class="welcome-card">
+                        <h3>سلام <span id="welcome-student-name">نام دانش آموز</span>! 👋</h3>
+                        <p>به پنل دانش آموزی دبیرستان گوهرتاج خوش آمدید</p>
+                    </div>
+                </div>
+                
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-value current-datetime" id="current-datetime">--</div>
+                        <div class="stat-label">تاریخ و زمان جاری</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="latest-report-card">--</div>
+                        <div class="stat-label">آخرین کارنامه</div>
+                    </div>
+                </div>
+                
+                <div class="upcoming-events mt-4">
+                    <h3>رویدادهای پیش رو</h3>
+                    <div class="events-list" id="events-list">
+                        <div class="event-item">
+                            <div class="event-date">
+                                <span class="event-day">۱۵</span>
+                                <span class="event-month">مهر</span>
+                            </div>
+                            <div class="event-content">
+                                <h4>آزمون ریاضی</h4>
+                                <p>آزمون فصل اول ریاضی پایه دهم</p>
+                            </div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-date">
+                                <span class="event-day">۲۰</span>
+                                <span class="event-month">مهر</span>
+                            </div>
+                            <div class="event-content">
+                                <h4>اردوی علمی</h4>
+                                <p>بازدید از موزه علوم و فناوری</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- بخش پروفایل دانش آموز -->
+            <section id="student-profile" class="dashboard-section">
+                <h2>پروفایل دانش آموز</h2>
+                
+                <div class="profile-container">
+                    <div class="profile-image-section">
+                        <img src="" alt="عکس پروفایل" class="profile-image" id="profile-image">
+                        <button class="btn btn-outline-primary mt-2" style="width: 100%;" onclick="changeProfileImage()">تغییر عکس</button>
+                    </div>
+                    
+                    <div class="profile-info">
+                        <div class="profile-field">
+                            <div class="profile-label">نام و نام خانوادگی</div>
+                            <div class="profile-value" id="profile-fullname">--</div>
+                        </div>
+                        
+                        <div class="profile-field">
+                            <div class="profile-label">کد ملی</div>
+                            <div class="profile-value" id="profile-nationalcode">--</div>
+                        </div>
+                        
+                        <div class="profile-field">
+                            <div class="profile-label">رمز عبور</div>
+                            <div class="profile-value" id="profile-password">--</div>
+                            <button class="btn btn-secondary btn-sm mt-1" onclick="changePassword()">تغییر رمز عبور</button>
+                        </div>
+                        
+                        <div class="profile-field">
+                            <div class="profile-label">پایه</div>
+                            <div class="profile-value" id="profile-grade">--</div>
+                        </div>
+                        
+                        <div class="profile-field">
+                            <div class="profile-label">کلاس</div>
+                            <div class="profile-value" id="profile-class">--</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- بخش برنامه کلاسی دانش آموز -->
+            <section id="student-schedule" class="dashboard-section">
+                <h2>برنامه کلاسی</h2>
+                <p class="text-muted">برنامه هفتگی کلاس <span id="schedule-class-name">--</span></p>
+                
+                <div id="student-schedule-container">
+                    <div class="loading-container">
+                        <p>در حال بارگذاری برنامه کلاسی...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- بخش کارنامه دانش آموز -->
+            <section id="student-report-cards" class="dashboard-section">
+                <h2>کارنامه های تحصیلی</h2>
+                
+                <div id="report-cards-container">
+                    <div class="loading-container">
+                        <p>در حال بارگذاری کارنامه‌ها...</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/student-dashboard.js"></script>
+</body>
+</html>

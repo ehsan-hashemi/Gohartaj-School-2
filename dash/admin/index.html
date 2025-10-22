@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل مدیریت - دبیرستان گوهرتاج</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+</head>
+<body>
+    <header class="sticky-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="../../assets/images/logo.png" alt="لوگو دبیرستان گوهرتاج" class="logo">
+                <h1 class="school-name">دبیرستان گوهرتاج</h1>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="../../" class="nav-link">خانه</a></li>
+                    <li><a href="../../news/" class="nav-link">اخبار</a></li>
+                    <li><a href="../../news/live/" class="nav-link">پخش زنده</a></li>
+                    <li><a href="#" class="nav-link" id="logout-btn">خروج</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="dashboard">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <ul class="sidebar-menu">
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link active" data-section="home">
+                            خانه
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link" data-section="student-management">
+                            مدیریت دانش آموزان
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link" data-section="teacher-management">
+                            مدیریت معلم ها
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link" data-section="schedule-management">
+                            برنامه های کلاسی
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="dashboard-content">
+            <!-- بخش خانه -->
+            <section id="home" class="dashboard-section active">
+                <h2>داشبورد مدیریت</h2>
+                
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-value" id="student-count">0</div>
+                        <div class="stat-label">تعداد دانش آموزان</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="teacher-count">0</div>
+                        <div class="stat-label">تعداد معلمان</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="admin-count">0</div>
+                        <div class="stat-label">تعداد مدیران</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value current-datetime" id="current-datetime">--</div>
+                        <div class="stat-label">تاریخ و زمان جاری</div>
+                    </div>
+                </div>
+                
+                <div class="recent-activities mt-4">
+                    <h3>فعالیت های اخیر</h3>
+                    <div class="activities-list">
+                        <div class="activity-item">
+                            <div class="activity-content">
+                                <p>ثبت نام جدید دانش آموز انجام شد</p>
+                                <span class="activity-time">2 ساعت پیش</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-content">
+                                <p>اطلاعیه جدید منتشر شد</p>
+                                <span class="activity-time">5 ساعت پیش</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-content">
+                                <p>کارنامه ترم اول صادر شد</p>
+                                <span class="activity-time">1 روز پیش</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- بخش مدیریت دانش آموزان -->
+            <section id="student-management" class="dashboard-section">
+                <h2>مدیریت دانش آموزان</h2>
+                
+                <div class="search-box mb-3">
+                    <input type="text" class="search-input" id="student-search" placeholder="جستجو در دانش آموزان...">
+                    <button class="search-button">جستجو</button>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="data-table" id="students-table">
+                        <thead>
+                            <tr>
+                                <th>نام و نام خانوادگی</th>
+                                <th>کد ملی</th>
+                                <th>پایه</th>
+                                <th>کلاس</th>
+                                <th>عکس پروفایل</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- دانش آموزان از طریق JavaScript بارگذاری می‌شوند -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- بخش مدیریت معلمان -->
+            <section id="teacher-management" class="dashboard-section">
+                <h2>مدیریت معلم ها</h2>
+                
+                <div class="search-box mb-3">
+                    <input type="text" class="search-input" id="teacher-search" placeholder="جستجو در معلمان...">
+                    <button class="search-button">جستجو</button>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="data-table" id="teachers-table">
+                        <thead>
+                            <tr>
+                                <th>نام و نام خانوادگی</th>
+                                <th>کد ملی</th>
+                                <th>درس</th>
+                                <th>عکس پروفایل</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- معلمان از طریق JavaScript بارگذاری می‌شوند -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- بخش برنامه های کلاسی -->
+            <section id="schedule-management" class="dashboard-section">
+                <h2>برنامه های کلاسی</h2>
+                
+                <div class="form-group">
+                    <label for="class-select" class="form-label">انتخاب کلاس:</label>
+                    <select class="form-select" id="class-select">
+                        <option value="">انتخاب کلاس</option>
+                    </select>
+                </div>
+                
+                <div id="schedule-container">
+                    <!-- برنامه کلاسی از طریق JavaScript بارگذاری می‌شود -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/admin-dashboard.js"></script>
+</body>
+</html>

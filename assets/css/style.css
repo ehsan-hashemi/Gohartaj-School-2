@@ -1,0 +1,2906 @@
+@font-face {
+    font-family: "Vazir";
+    src: url("/assets/fonts/Vazir-Regular.ttf");
+}
+
+/* Reset و تنظیمات پایه */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Vazir";
+}
+
+:root {
+    --primary-color: #4a6fa5; /* آبی سورمه‌ای متوسط */
+    --primary-light: #6b8cbe;
+    --primary-dark: #3a5982;
+    --secondary-color: #ffffff;
+    --text-color: #333333;
+    --text-light: #666666;
+    --background-color: #f8f9fa;
+    --border-color: #e0e0e0;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    direction: rtl;
+    text-align: right;
+}
+
+/* هدر چسبان */
+.sticky-header {
+    position: sticky;
+    top: 0;
+    background-color: var(--secondary-color);
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    padding: 0.75rem 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 50px;
+    margin-left: 1rem;
+}
+
+.school-name {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav-menu li {
+    margin-left: 1.5rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link.active {
+    color: var(--primary-color);
+    background-color: rgba(74, 111, 165, 0.1);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+/* محتوای اصلی */
+.main-content {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    color: var(--secondary-color);
+    padding: 4rem 2rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.announcements-section, .news-section {
+    margin-bottom: 3rem;
+}
+
+.announcements-section h2, .news-section h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-light);
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary-dark);
+}
+
+.card-description {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+/* فوتر */
+.site-footer {
+    background-color: var(--primary-dark);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+}
+
+.site-footer a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+}
+
+/* صفحه اخبار */
+.search-section {
+    background-color: var(--secondary-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.search-box {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px 0 0 4px;
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.search-input:focus {
+    border-color: var(--primary-color);
+}
+
+.search-button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 0 1.5rem;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.search-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.sort-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.sort-button {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.sort-button.active {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-color: var(--primary-color);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 0.5rem;
+}
+
+.page-button {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.page-button.active {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-color: var(--primary-color);
+}
+
+.page-button:hover:not(.active) {
+    background-color: var(--background-color);
+}
+
+/* صفحه خبر */
+.news-detail {
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.news-title {
+    font-size: 2rem;
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+}
+
+.news-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.news-media {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.news-media img, .news-media iframe {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.news-content {
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.share-button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.share-button:hover {
+    background-color: var(--primary-dark);
+}
+
+/* صفحه پخش زنده */
+.live-container {
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.live-player {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.live-player iframe {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+}
+
+.live-info h2 {
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+}
+
+.live-time {
+    color: var(--text-light);
+}
+
+/* صفحه ورود */
+.login-container {
+    max-width: 400px;
+    margin: 3rem auto;
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.login-title {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+}
+
+.login-button {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.login-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.error-message {
+    color: #e74c3c;
+    text-align: center;
+    margin-top: 1rem;
+    display: none;
+}
+
+/* داشبورد */
+.dashboard {
+    display: flex;
+    min-height: calc(100vh - 140px);
+}
+
+.sidebar {
+    width: 250px;
+    background-color: var(--primary-dark);
+    color: var(--secondary-color);
+    padding: 1.5rem 0;
+}
+
+.sidebar-menu {
+    list-style: none;
+}
+
+.sidebar-item {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-link {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.sidebar-link:hover, .sidebar-link.active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dashboard-content {
+    flex: 1;
+    padding: 1.5rem;
+    background-color: var(--background-color);
+}
+
+.dashboard-section {
+    background-color: var(--secondary-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+}
+
+.dashboard-section h2 {
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background-color: var(--background-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: var(--text-light);
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.data-table th, .data-table td {
+    padding: 0.75rem;
+    text-align: right;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.data-table th {
+    background-color: var(--background-color);
+    color: var(--primary-dark);
+    font-weight: 600;
+}
+
+.data-table tr:hover {
+    background-color: var(--background-color);
+}
+
+.profile-container {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-field {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.profile-label {
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-bottom: 0.25rem;
+}
+
+.profile-value {
+    color: var(--text-color);
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.schedule-table th, .schedule-table td {
+    padding: 0.75rem;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.schedule-table th {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.schedule-table td {
+    background-color: var(--secondary-color);
+}
+
+.pdf-viewer {
+    width: 100%;
+    height: 600px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.pdf-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.pdf-button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.pdf-button:hover {
+    background-color: var(--primary-dark);
+}
+
+/* رسپانسیو */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .logo-section {
+        margin-bottom: 1rem;
+    }
+    
+    .nav-menu ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .nav-menu li {
+        margin: 0.25rem;
+    }
+    
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .dashboard {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+    }
+    
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .data-table, .schedule-table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+/* انیمیشن‌ها */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.slide-in {
+    animation: slideIn 0.5s ease;
+}
+
+/* استایل‌های اضافی برای زیبایی بیشتر */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--secondary-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: var(--text-color);
+    color: var(--secondary-color);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    right: 50%;
+    margin-right: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+}
+
+.badge-primary {
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+}
+
+.badge-secondary {
+    color: var(--secondary-color);
+    background-color: var(--text-light);
+}
+
+.progress {
+    display: flex;
+    height: 1rem;
+    overflow: hidden;
+    font-size: 0.75rem;
+    background-color: var(--border-color);
+    border-radius: 0.25rem;
+}
+
+.progress-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    color: var(--secondary-color);
+    text-align: center;
+    white-space: nowrap;
+    background-color: var(--primary-color);
+    transition: width 0.6s ease;
+}
+
+.alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.alert-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+.alert-info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+}
+
+/* استایل‌های اضافی برای بهبود UX */
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-primary {
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    color: var(--secondary-color);
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.btn-secondary {
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    border-color: var(--border-color);
+}
+
+.btn-secondary:hover {
+    color: var(--text-color);
+    background-color: var(--background-color);
+    border-color: var(--text-light);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    background-color: transparent;
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.form-select {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 1.75rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: left 0.75rem center;
+    background-size: 16px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 0.25rem;
+    appearance: none;
+}
+
+.form-select:focus {
+    border-color: var(--primary-color);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(74, 111, 165, 0.25);
+}
+
+/* استایل‌های سفارشی برای المان‌های مختلف */
+.card-highlight {
+    border-left: 4px solid var(--primary-color);
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.text-muted {
+    color: var(--text-light) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.bg-light {
+    background-color: var(--background-color) !important;
+}
+
+.rounded {
+    border-radius: 0.25rem !important;
+}
+
+.rounded-lg {
+    border-radius: 0.5rem !important;
+}
+
+.shadow-sm {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.shadow {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.mb-1 {
+    margin-bottom: 0.25rem !important;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem !important;
+}
+
+.mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+.mb-5 {
+    margin-bottom: 3rem !important;
+}
+
+.mt-1 {
+    margin-top: 0.25rem !important;
+}
+
+.mt-2 {
+    margin-top: 0.5rem !important;
+}
+
+.mt-3 {
+    margin-top: 1rem !important;
+}
+
+.mt-4 {
+    margin-top: 1.5rem !important;
+}
+
+.mt-5 {
+    margin-top: 3rem !important;
+}
+
+.p-1 {
+    padding: 0.25rem !important;
+}
+
+.p-2 {
+    padding: 0.5rem !important;
+}
+
+.p-3 {
+    padding: 1rem !important;
+}
+
+.p-4 {
+    padding: 1.5rem !important;
+}
+
+.p-5 {
+    padding: 3rem !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.justify-content-between {
+    justify-content: space-between !important;
+}
+
+.align-items-center {
+    align-items: center !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.h-100 {
+    height: 100% !important;
+}
+
+/* استایل‌های خاص برای المان‌های فرم */
+.form-check {
+    display: block;
+    min-height: 1.5rem;
+    padding-right: 1.5em;
+    margin-bottom: 0.125rem;
+}
+
+.form-check-input {
+    width: 1em;
+    height: 1em;
+    margin-top: 0.25em;
+    margin-right: -1.5em;
+    vertical-align: top;
+    background-color: var(--secondary-color);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    appearance: none;
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.form-check-label {
+    cursor: pointer;
+}
+
+/* استایل‌های برای حالت‌های مختلف */
+.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* استایل‌های برای اسکرول بار سفارشی */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-light);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* استایل‌های برای نمایش در حالت چاپ */
+@media print {
+    .sticky-header, .site-footer, .sidebar, .no-print {
+        display: none !important;
+    }
+    
+    body {
+        background-color: white !important;
+        color: black !important;
+    }
+    
+    .dashboard-content {
+        padding: 0 !important;
+    }
+    
+    .card {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+}
+
+/* استایل‌های اضافی برای بهبود تجربه کاربری در دستگاه‌های لمسی */
+@media (hover: none) and (pointer: coarse) {
+    .card:hover {
+        transform: none;
+    }
+    
+    .nav-link:hover {
+        background-color: transparent;
+    }
+}
+
+/* استایل‌های برای حالت تاریک (اختیاری) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: #f8f9fa;
+        --text-light: #adb5bd;
+        --background-color: #212529;
+        --border-color: #495057;
+        --secondary-color: #343a40;
+    }
+    
+    .form-input, .form-select {
+        background-color: #495057;
+        color: #f8f9fa;
+        border-color: #6c757d;
+    }
+    
+    .form-input:focus, .form-select:focus {
+        background-color: #495057;
+        color: #f8f9fa;
+    }
+}
+
+/* استایل‌های نهایی برای اطمینان از زیبایی و یکپارچگی طراحی */
+*:focus {
+    outline: 2px solid var(--primary-light);
+    outline-offset: 2px;
+}
+
+/* اضافه کردن استایل‌های برای نمایش بهتر اعداد */
+.numbers {
+    font-feature-settings: 'numr';
+}
+
+/* استایل‌های برای نمایش بهتر تاریخ‌های شمسی */
+.persian-date {
+    direction: rtl;
+}
+
+/* استایل‌های نهایی برای اطمینان از نمایش صحیح در مرورگرهای مختلف */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* اضافه کردن استایل‌های برای بهبود دسترسی */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* استایل‌های برای نمایش بهتر در مرورگرهای قدیمی */
+.no-js .js-only {
+    display: none;
+}
+
+/* استایل‌های برای نمایش بهتر در حالت fullscreen */
+:-webkit-full-screen {
+    background-color: var(--background-color);
+}
+
+:-moz-full-screen {
+    background-color: var(--background-color);
+}
+
+:-ms-fullscreen {
+    background-color: var(--background-color);
+}
+
+:fullscreen {
+    background-color: var(--background-color);
+}
+
+/* استایل‌های نهایی برای اطمینان از عملکرد صحیح */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* اضافه کردن استایل‌های برای بهبود عملکرد در دستگاه‌های با DPI بالا */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* استایل‌های برای نمایش بهتر در مرورگرهای مختلف */
+@supports (display: grid) {
+    .cards-container {
+        display: grid;
+    }
+}
+
+@supports not (display: grid) {
+    .cards-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .card {
+        flex: 1 0 300px;
+        margin: 0.75rem;
+    }
+}
+
+/* استایل‌های نهایی برای اطمینان از نمایش صحیح در تمام شرایط */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1 0 auto;
+}
+
+.site-footer {
+    flex-shrink: 0;
+}
+
+/* استایل‌های مخصوص داشبورد */
+.dashboard {
+    display: flex;
+    min-height: calc(100vh - 140px);
+}
+
+.sidebar {
+    width: 280px;
+    background: linear-gradient(180deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+    color: var(--secondary-color);
+    padding: 0;
+}
+
+.sidebar-nav {
+    padding: 1.5rem 0;
+}
+
+.sidebar-menu {
+    list-style: none;
+}
+
+.sidebar-item {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-right: 3px solid transparent;
+}
+
+.sidebar-link:hover, 
+.sidebar-link.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-right-color: var(--secondary-color);
+}
+
+.sidebar-link span {
+    font-size: 1.2rem;
+}
+
+.student-info {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.student-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.student-name {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.student-class {
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+.dashboard-content {
+    flex: 1;
+    padding: 2rem;
+    background-color: var(--background-color);
+    overflow-y: auto;
+}
+
+.dashboard-section {
+    display: none;
+}
+
+.dashboard-section.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+.welcome-card {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    color: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.activities-list,
+.events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.activity-item,
+.event-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.activity-icon {
+    font-size: 1.5rem;
+}
+
+.activity-content p {
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+}
+
+.activity-time {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.event-date {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 0.75rem;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 60px;
+}
+
+.event-day {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.event-month {
+    font-size: 0.85rem;
+}
+
+.event-content h4 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-dark);
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.profile-thumb {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* استایل‌های مخصوص modal */
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    padding: 1rem;
+}
+
+.modal-content {
+    background-color: var(--secondary-color);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: var(--secondary-color);
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--secondary-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.close-modal:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.modal-body {
+    flex: 1;
+    padding: 1.5rem;
+    overflow: auto;
+}
+
+/* استایل‌های واکنش‌گرا برای داشبورد */
+@media (max-width: 768px) {
+    .dashboard {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        order: 2;
+    }
+    
+    .dashboard-content {
+        order: 1;
+        padding: 1rem;
+    }
+    
+    .student-info {
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        text-align: right;
+    }
+    
+    .student-avatar {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 0;
+    }
+    
+    .sidebar-nav {
+        padding: 0;
+    }
+    
+    .sidebar-menu {
+        display: flex;
+        overflow-x: auto;
+        padding: 0.5rem;
+    }
+    
+    .sidebar-item {
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+    
+    .sidebar-link {
+        padding: 0.75rem 1rem;
+        border-right: none;
+        border-bottom: 3px solid transparent;
+    }
+    
+    .sidebar-link.active {
+        border-right-color: transparent;
+        border-bottom-color: var(--secondary-color);
+    }
+    
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-container {
+        flex-direction: column;
+    }
+}
+
+/* انیمیشن‌های اضافی */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease;
+}
+
+/* استایل‌های برای اسکرول بار در داشبورد */
+.dashboard-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dashboard-content::-webkit-scrollbar-track {
+    background: var(--background-color);
+}
+
+.dashboard-content::-webkit-scrollbar-thumb {
+    background: var(--primary-light);
+    border-radius: 3px;
+}
+
+.dashboard-content::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* استایل‌های اضافی برای JavaScript */
+
+/* Loading */
+.loading-container {
+    text-align: center;
+    padding: 2rem;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--border-color);
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error */
+.error-container {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-light);
+}
+
+.error-container p {
+    margin-bottom: 1rem;
+}
+
+/* Toast */
+.toast {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background: var(--secondary-color);
+    color: var(--text-color);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+    border-right: 4px solid var(--primary-color);
+}
+
+.toast.show {
+    transform: translateX(0);
+}
+
+.toast-success {
+    border-right-color: #28a745;
+}
+
+.toast-error {
+    border-right-color: #dc3545;
+}
+
+.toast-warning {
+    border-right-color: #ffc107;
+}
+
+/* Form Validation */
+.field-error {
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+.form-input.error {
+    border-color: #dc3545;
+}
+
+/* Login Animation */
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Dashboard Sections */
+.dashboard-section {
+    display: none;
+}
+
+.dashboard-section.active {
+    display: block;
+    animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Schedule Table */
+.schedule-table-container {
+    overflow-x: auto;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background: var(--secondary-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.schedule-table th,
+.schedule-table td {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.schedule-table th {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.schedule-table td {
+    background: var(--secondary-color);
+}
+
+.schedule-table .period-name {
+    background: var(--background-color);
+    font-weight: 600;
+}
+
+/* Report Cards */
+.report-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.report-card-average {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.card-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.card-actions .btn {
+    flex: 1;
+}
+
+/* PDF Viewer */
+.pdf-viewer-container {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+}
+
+.pdf-viewer {
+    flex: 1;
+    width: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.pdf-controls {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+/* Live Stream */
+.live-placeholder {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-light);
+}
+
+.live-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.offline-message {
+    text-align: center;
+    padding: 2rem;
+    background: var(--background-color);
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.offline-icon {
+    font-size: 3rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+/* News Detail */
+.news-article {
+    background: var(--secondary-color);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.news-header {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.news-title {
+    color: var(--primary-dark);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.news-meta {
+    display: flex;
+    gap: 2rem;
+    color: var(--text-light);
+}
+
+.news-meta i {
+    margin-left: 0.5rem;
+}
+
+.news-media {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.news-image {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+}
+
+.news-content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.news-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.news-tags {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.tag {
+    background: var(--background-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.news-navigation {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .news-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .news-footer {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+    
+    .card-actions {
+        flex-direction: column;
+    }
+    
+    .pdf-controls {
+        flex-direction: column;
+    }
+    
+    .report-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .toast {
+        right: 10px;
+        left: 10px;
+        transform: translateY(-100px);
+    }
+    
+    .toast.show {
+        transform: translateY(0);
+    }
+}
+
+/* استایل‌های مخصوص پخش زنده */
+.live-stream {
+    background: var(--secondary-color);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.live-player {
+    position: relative;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #000;
+}
+
+.live-player iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    display: block;
+}
+
+.live-info {
+    margin-bottom: 1.5rem;
+}
+
+.live-title {
+    color: var(--primary-dark);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.live-meta {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.live-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+}
+
+.live-meta-item i {
+    color: var(--primary-color);
+}
+
+.live-description {
+    background: var(--background-color);
+    padding: 1rem;
+    border-radius: 8px;
+    border-right: 4px solid var(--primary-color);
+}
+
+.live-placeholder {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-light);
+    background: var(--background-color);
+    border-radius: 8px;
+}
+
+.live-placeholder i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.offline-message {
+    text-align: center;
+    padding: 2rem;
+    background: var(--background-color);
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.offline-icon {
+    font-size: 3rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.offline-message h3 {
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+}
+
+.stream-error {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-light);
+}
+
+.error-icon {
+    font-size: 4rem;
+    color: #dc3545;
+    margin-bottom: 1rem;
+}
+
+.stream-error h3 {
+    color: #dc3545;
+    margin-bottom: 1rem;
+}
+
+.live-instructions {
+    background: var(--background-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-right: 4px solid var(--primary-color);
+}
+
+.live-instructions h3 {
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+}
+
+.live-instructions ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.live-instructions li {
+    padding: 0.5rem 0;
+    position: relative;
+    padding-right: 1.5rem;
+}
+
+.live-instructions li:before {
+    content: "•";
+    color: var(--primary-color);
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+}
+
+/* رسپانسیو برای پخش زنده */
+@media (max-width: 768px) {
+    .live-stream {
+        padding: 1rem;
+    }
+    
+    .live-player iframe {
+        height: 300px;
+    }
+    
+    .live-meta {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .live-instructions {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .live-player iframe {
+        height: 250px;
+    }
+    
+    .live-title {
+        font-size: 1.3rem;
+    }
+}
+
+/* استایل‌های مخصوص نمایش رسانه‌های خبر */
+.card-media {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-image {
+    transform: scale(1.05);
+}
+
+.media-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.video-badge {
+    background: var(--primary-color);
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary-color);
+}
+
+.video-thumbnail i {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.video-thumbnail p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.card-video-indicator {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+.card-video-indicator i {
+    margin-left: 0.25rem;
+}
+
+/* استایل‌های صفحه جزئیات خبر */
+.news-media {
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.image-media img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.video-media {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+}
+
+.video-media .video-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-media iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.no-media {
+    text-align: center;
+    padding: 2rem;
+    background: var(--background-color);
+    border-radius: 8px;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+/* نشانگرهای رسانه در کارت‌ها */
+.media-indicators {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.media-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.media-indicator.has-media {
+    color: var(--primary-color);
+}
+
+/* رسپانسیو */
+@media (max-width: 768px) {
+    .card-media {
+        height: 150px;
+    }
+    
+    .video-thumbnail i {
+        font-size: 2rem;
+    }
+    
+    .video-thumbnail p {
+        font-size: 1rem;
+    }
+}
+
+/* استایل‌های مخصوص لینک ویدیو در اخبار */
+.video-link-media {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.video-link-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.video-link-icon {
+    font-size: 3rem;
+    flex-shrink: 0;
+}
+
+.video-link-content {
+    flex: 1;
+}
+
+.video-link-content h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.3rem;
+}
+
+.video-link-content p {
+    margin: 0 0 1rem 0;
+    opacity: 0.9;
+}
+
+.video-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.video-link:hover {
+    background: transparent;
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* آیکون ویدیو در کارت‌ها */
+.media-badge.video-badge {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.card-video-indicator {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+/* رسپانسیو برای لینک ویدیو */
+@media (max-width: 768px) {
+    .video-link-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .video-link-icon {
+        font-size: 2.5rem;
+    }
+    
+    .video-link-content h4 {
+        font-size: 1.1rem;
+    }
+    
+    .video-link {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-link-media {
+        padding: 1.5rem;
+    }
+    
+    .video-link-icon {
+        font-size: 2rem;
+    }
+}
+
+/* استایل‌های مخصوص نمایش ویدیو در اخبار */
+.news-media {
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.image-media img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+.video-media {
+    position: relative;
+    background: #000;
+    border-radius: 8px;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+}
+
+.video-media iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+    display: block;
+}
+
+.video-placeholder {
+    background: var(--background-color);
+    padding: 3rem;
+    text-align: center;
+    color: var(--text-light);
+    border-radius: 8px;
+}
+
+.video-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+/* نشانگرهای رسانه در کارت‌ها */
+.media-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.video-badge {
+    background: var(--primary-color);
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary-color);
+}
+
+.video-thumbnail i {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.video-thumbnail p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.card-video-indicator {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+.card-video-indicator i {
+    margin-left: 0.25rem;
+}
+
+/* بهبود استایل‌های موجود برای ویدیو */
+.news-article .video-container iframe {
+    border-radius: 8px;
+}
+
+/* رسپانسیو برای ویدیو */
+@media (max-width: 768px) {
+    .video-media iframe {
+        height: 300px;
+    }
+    
+    .image-media img {
+        max-height: 300px;
+    }
+    
+    .card-media {
+        height: 150px;
+    }
+    
+    .video-thumbnail i {
+        font-size: 2rem;
+    }
+    
+    .video-thumbnail p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-media iframe {
+        height: 250px;
+    }
+    
+    .image-media img {
+        max-height: 250px;
+    }
+}
+
+/* استایل‌های مخصوص پخش‌کننده ویدیو داخلی */
+.news-media {
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.image-media img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+.video-media {
+    background: #000;
+    border-radius: 8px;
+}
+
+.video-player-container {
+    position: relative;
+    width: 100%;
+    background: #000;
+}
+
+.news-video-player {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    display: block;
+    background: #000;
+}
+
+/* کنترل‌های ویدیو */
+.video-controls-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    pointer-events: none;
+}
+
+.video-info h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.video-actions {
+    display: flex;
+    gap: 0.5rem;
+    pointer-events: all;
+}
+
+.video-action-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.video-action-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* وضعیت خطا */
+.video-error {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-light);
+    background: var(--background-color);
+}
+
+.video-error i {
+    font-size: 3rem;
+    color: #dc3545;
+    margin-bottom: 1rem;
+}
+
+.video-error h4 {
+    color: #dc3545;
+    margin-bottom: 1rem;
+}
+
+/* استایل‌های حالت تمام صفحه */
+.video-player-container:fullscreen {
+    width: 100%;
+    height: 100%;
+    background: #000;
+}
+
+.video-player-container:fullscreen .news-video-player {
+    max-height: 100vh;
+    height: 100vh;
+    object-fit: contain;
+}
+
+.video-player-container:fullscreen .video-controls-overlay {
+    padding: 2rem;
+}
+
+/* نشانگرهای رسانه در کارت‌ها */
+.media-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.video-badge {
+    background: var(--primary-color);
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary-color);
+}
+
+.video-thumbnail i {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.video-thumbnail p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.card-video-indicator {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+.card-video-indicator i {
+    margin-left: 0.25rem;
+}
+
+
+.news-video-player::-webkit-media-controls-play-button,
+.news-video-player::-webkit-media-controls-volume-slider,
+.news-video-player::-webkit-media-controls-mute-button {
+    filter: invert(1);
+}
+
+/* رسپانسیو برای ویدیو */
+@media (max-width: 768px) {
+    .news-video-player {
+        max-height: 300px;
+    }
+    
+    .image-media img {
+        max-height: 300px;
+    }
+    
+    .card-media {
+        height: 150px;
+    }
+    
+    .video-thumbnail i {
+        font-size: 2rem;
+    }
+    
+    .video-thumbnail p {
+        font-size: 1rem;
+    }
+    
+    .video-controls-overlay {
+        padding: 0.75rem;
+    }
+    
+    .video-info h4 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .news-video-player {
+        max-height: 250px;
+    }
+    
+    .image-media img {
+        max-height: 250px;
+    }
+    
+    .video-controls-overlay {
+        padding: 0.5rem;
+    }
+    
+    .video-info h4 {
+        font-size: 0.9rem;
+    }
+}
+
+/* استایل‌های مخصوص پخش‌کننده ویدیو داخلی ساده */
+.news-media {
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.image-media img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+.video-media {
+    background: #000;
+    border-radius: 8px;
+}
+
+.video-title {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 1rem 1.5rem;
+    margin: 0;
+}
+
+.video-title h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.video-player-container {
+    position: relative;
+    width: 100%;
+    background: #000;
+}
+
+.news-video-player {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    display: block;
+    background: #000;
+    border: none;
+    outline: none;
+}
+
+/* وضعیت خطا */
+.video-error {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-light);
+    background: var(--background-color);
+}
+
+.video-error i {
+    font-size: 3rem;
+    color: #dc3545;
+    margin-bottom: 1rem;
+}
+
+.video-error h4 {
+    color: #dc3545;
+    margin-bottom: 1rem;
+}
+
+/* پخش‌کننده ویدیو تمیز و ساده */
+.news-video-player::-webkit-media-controls-panel {
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+}
+
+.news-video-player::-webkit-media-controls-play-button,
+.news-video-player::-webkit-media-controls-volume-slider,
+.news-video-player::-webkit-media-controls-mute-button {
+    filter: invert(1);
+}
+
+/* بهبود کنترل‌های پیش‌فرض مرورگر */
+.news-video-player:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: -2px;
+}
+
+/* رسپانسیو برای ویدیو */
+@media (max-width: 768px) {
+    .news-video-player {
+        max-height: 300px;
+    }
+    
+    .image-media img {
+        max-height: 300px;
+    }
+    
+    .video-title {
+        padding: 0.75rem 1rem;
+    }
+    
+    .video-title h3 {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .news-video-player {
+        max-height: 250px;
+    }
+    
+    .image-media img {
+        max-height: 250px;
+    }
+    
+    .video-title {
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .video-title h3 {
+        font-size: 1rem;
+    }
+}
+
+/* استایل‌های برای کارت‌های اخبار (بدون تغییر) */
+.card-media {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-image {
+    transform: scale(1.05);
+}
+
+.media-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.video-badge {
+    background: var(--primary-color);
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary-color);
+}
+
+.video-thumbnail i {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.video-thumbnail p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.card-video-indicator {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+.card-video-indicator i {
+    margin-left: 0.25rem;
+}
